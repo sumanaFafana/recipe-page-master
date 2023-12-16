@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  font-size: 0.875em;
+  --orange: #f2994a;
+  --gray: #bdbdbd;
+}
+
+@media (max-width: 367px) {
+  :root {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 500px) {
+  :root {
+    font-size: 1rem;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  padding-inline: 0.86rem;
+}
+
+@media (min-width: 765px) {
+  .container {
+    padding-inline: 1.3rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    max-width: 1000px;
+    margin-inline: auto;
+  }
+}
+
+.header .page-title {
+  font-family: "Playfair Display", serif;
+  text-transform: capitalize;
+  font-size: 1.7rem;
+}
+
+.page-description {
+  display: flex;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.page-description .dots {
+  margin-top: 4px;
+  margin-right: 0.86rem;
+}
+
+.description__text {
+  font-weight: 500;
+  font-style: italic;
+  font-size: 0.86rem;
+}
+
+.header__image img {
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .main {
+    display: flex;
+    align-items: start;
+    gap: 7rem;
+    margin-top: 3.4rem;
+  }
+}
+
+.recipe {
+  margin-top: 1.7rem;
+}
+
+@media (min-width: 1200px) {
+  .flex-recipe {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    order: 1;
+    flex-basis: 30%;
+  }
+
+  .flex-procedure {
+    flex-basis: 70%;
+  }
+}
+
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1200px) {
+  .recipe-container {
+    align-items: center;
+    padding-block: 40px;
+  }
+}
+
+.recipe p {
+  margin-top: 0;
+}
+
+.recipe .title {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gray);
+  font-size: 0.8rem;
+}
+
+.recipe-container i {
+  font-size: 1.4rem;
+}
+
+.recipe__durations {
+  margin-top: 1.4rem;
+}
+
+@media (min-width: 1200px) {
+  .recipe__durations {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.recipe__yields,
+.prep-time,
+.cook-time,
+.total-duration {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.recipe__yields i {
+  color: var(--orange);
+}
+
+.recipe__yields-info,
+.recipe__prep-info,
+.recipe__cook-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe__yields .yield-servings {
+  color: var(--orange);
+}
+
+.recipe__durations {
+  display: flex;
+  gap: 1.9rem;
+}
+
+@media (min-width: 760px) {
+  .recipe__durations {
+    gap: 5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .recipe__durations {
+    gap: 1.9rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .yield-serving,
+  .prep-timing {
+    font-size: 0.8571428571rem;
+  }
+}
+
+/* SECTION INGREDIENTS */
+
+.ingredients .section__title {
+  font-family: "Playfair Display", serif;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+}
+
+.ingredient__name {
+  text-transform: capitalize;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.3rem;
+}
+
+.ingredient__name:nth-of-type(2) {
+  margin-top: 2.5rem;
+}
+
+/* CHECKBOX */
+
+.checkbox-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+.custom-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border: 1px solid #828282;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 9px;
+  top: 6px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.custom-checkbox:checked ~ .checkmark {
+  background-color: #2196f3;
+  box-shadow: 0 3px 7px rgba(33, 150, 243, 0.3);
+}
+
+.custom-checkbox:checked ~ .checkmark:after {
+  display: block;
+}
+
+@keyframes checkAnim {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 10px;
+  }
+}
+
+.custom-checkbox:checked ~ .checkmark:after {
+  animation: checkAnim 0.2s forwards;
+}
+
+.ingredients__list {
+  margin-top: 1.6rem;
+}
+
+.ingredient .outer-label {
+  display: flex;
+  align-items: start;
+  gap: 0.6rem;
+}
+
+.label__bold {
+  font-weight: 700;
+}
+
+.label__italics {
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* SECTION INSTRUCTIONS */
+.instructions .title {
+  font-family: "Playfair Display", serif;
+  text-transform: capitalize;
+  margin-top: 2rem;
+}
+
+.listing {
+  display: flex;
+  gap: 1.07rem;
+  align-items: start;
+}
+
+.listing + .listing {
+  margin-top: 2.5rem;
+}
+
+.step__number {
+  align-items: center;
+  background: var(--orange);
+  border-radius: 6px;
+  color: #fff;
+  display: flex;
+  font-family: "Playfair Display", serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  height: 36px;
+  justify-content: center;
+  padding: 0.2rem 0.9rem 0.6rem;
+  width: 36px;
+}
+
+/* FOOTER */
+.footer {
+  color: #bdbdbd;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 1.9rem;
+  margin-bottom: 1.9rem;
+}
+
+.footer * {
+  color: inherit;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer .source {
+  display: block;
+}
+
+.author {
+  text-align: center;
+  color: #828282;
+  margin-top: 9rem;
+}
+
+.author a:link {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.author a:link::after {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  content: "";
+  display: inline-block;
+  height: 4px;
+  width: 0;
+  background-color: #bdbdbd;
+  transition: all 0.3s;
+}
+
+.author a:hover::after {
+  width: 100%;
+  background-color: #9c9b9b;
+}
